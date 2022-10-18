@@ -41,6 +41,6 @@ describe("Cadastro", () => {
     cy.get('input[name="city-uf"]').should('have.value', entregador.endereco.cidade_uf)
 
     cy.contains('.delivery-method  li', entregador.metodo_entrega).click()
-    cy.get('input[accept^="image"]').attachFile('/images/' + entregador.cnh);
+    cy.get('input[accept^="image"]').attachFile('/images/' + entregador.cnh);  
   });
 });
