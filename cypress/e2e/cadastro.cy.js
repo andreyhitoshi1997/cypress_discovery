@@ -1,58 +1,25 @@
-import SignupPage from "../pages/SignupPage"
+import signup from "../pages/SignupPage"
 
 describe("Cadastro", () => {
-  it("Usuário deve se tornar um entregador", () => {
 
+  beforeEach(function() {
+    cy.fixture('deliver').then((d)=> {
+      this.deliver = d
+    })
+  });
 
-    var deliver = {
-      name: "Andrey Hitoshi",
-      cpf: "00000014141",
-      email: "andrey@test.com",
-      whatsapp: "11999999999",
-      address: {
-        postalCode: "04534011",
-        street: "Rua Joaquim Floriano",
-        number: "1000",
-        details: "apto 142",
-        district: "Itaim Bibi",
-        city_state: "São Paulo/SP",
-      },
-      delivery_method: 'Moto',
-      cnh: 'cnh-digital.jpg'
-    }
-
-    var signup = new SignupPage();
-
+  it("Usuário deve se tornar um entregador", function() {    
     signup.go()
-    signup.fillForm(deliver)
+    signup.fillForm(this.deliver.signup)
     signup.submit()
 
     const expectedMessage = "Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato."
     signup.modalContentShouldBe(expectedMessage)    
   })
 
-  it("CPF Incorreto", () => {
-    var deliver = {
-      name: "Andrey Hitoshi",
-      cpf: "00000014141AA",
-      email: "andrey@test.com",
-      whatsapp: "11999999999",
-      address: {
-        postalCode: "04534011",
-        street: "Rua Joaquim Floriano",
-        number: "1000",
-        details: "apto 142",
-        district: "Itaim Bibi",
-        city_state: "São Paulo/SP",
-      },
-      delivery_method: 'Moto',
-      cnh: 'cnh-digital.jpg'
-    }
-
-    var signup = new SignupPage();
-
+  it("CPF Incorreto", function() {
     signup.go()
-    signup.fillForm(deliver)
+    signup.fillForm(this.deliver.cpf_inv)
     signup.submit()
 
     signup.alertMessagShouldBe("Oops! CPF inválido") 

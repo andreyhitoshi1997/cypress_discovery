@@ -2,8 +2,8 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+    viewportHeight: 1920,
+    viewportWidth: 1080,
+    baseUrl: 'https://buger-eats.vercel.app'
   },
 });
