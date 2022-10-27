@@ -23,7 +23,6 @@ export default {
             delivery_method: 'Moto',
             cnh: 'cnh-digital.jpg'
         }
-
         return data
     }
 }
