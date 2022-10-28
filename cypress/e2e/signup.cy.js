@@ -65,7 +65,6 @@ describe("Signup", () => {
       signupPage.submit()
     })
 
-
     messages.forEach(function(msg){
       it(`${msg.field} is required`,function(){
         signupPage.alertMessagShouldBe(msg.output)

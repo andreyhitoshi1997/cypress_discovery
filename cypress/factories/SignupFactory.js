@@ -5,7 +5,6 @@ export default {
 
         var firstName = faker.name.firstName()
         var lastName = faker.name.lastName()
-    
 
         var data =  {
             name: `${firstName} ${lastName}`,
