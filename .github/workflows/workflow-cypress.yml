@@ -16,9 +16,7 @@ jobs:
       - name: 'UI Tests - Chrome'
         uses: cypress-io/github-action@v2
         with:
-          build: npm run build
-          start: npm start
-          install-command: npm i
+          install-command: yarn test
           wait-on: ${{ secrets.BASE_URL }}
           wait-on-timeout: 120
           browser: chrome
