@@ -1,7 +1,7 @@
 {
   "name": "cypress_discovery",
   "version": "1.0.0",
-  "description": "Projeto testes de aceitação do app burger eats",
+  "description": "Alterando a descrição",
   "main": "index.js",
   "scripts": {
     "test": "npx cypress open"
